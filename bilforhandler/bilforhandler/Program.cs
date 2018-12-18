@@ -12,7 +12,7 @@ namespace bilforhandler
         {
 
             Console.WriteLine("Type showall if you want to see the cars");
-            Console.WriteLine("");
+            Console.WriteLine("Type quit to exit the program");
 
             Cars t = new Cars();
 
@@ -43,13 +43,12 @@ namespace bilforhandler
                         break;
                 }
             }
-
         }
     }
 
     class Cars
     {
-        public string[] carModels = new string[] { "Renault Megane", "Kia Ceed", "Mercedes A200", "Tesla Model S 75d" };
+        public string[] carModels = new string[] { "1. Renault Megane", "2. Kia Ceed", "3. Mercedes A200", "4. Tesla Model S 75d" };
 
         public void ShowAllCars(string[] carModels)
         {
@@ -62,6 +61,7 @@ namespace bilforhandler
 
         public void ChooseCar(string[] carModels)
         {
+            Console.WriteLine("write the number of the car you want to look at");
             string userInput = Console.ReadLine();
 
             if (userInput == "1")

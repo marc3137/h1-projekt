@@ -15,7 +15,7 @@ namespace bilforhandler
             Console.WriteLine("1. Renault Megane - price: 206.900");
             Console.WriteLine("2. Kia Ceed - price: 214.999");
             Console.WriteLine("3. Mercedes A200 - price: 402.300");
-            Console.WriteLine("4.Tesla Model S 75d - price: 669.820");
+            Console.WriteLine("4. Tesla Model S 75d - price: 669.820");
             Console.WriteLine("");
 
             Console.WriteLine("type choose, if you want to choose a car to look at");
@@ -41,6 +41,11 @@ namespace bilforhandler
                     case "quit":
                         isRunning = false;
                         break;
+                    case "modify":
+                        t.modify(t.carModels);
+                        break;
+
+                        
 
                     default:
                         Console.WriteLine("not a valid input");
@@ -58,6 +63,7 @@ namespace bilforhandler
         {
             Console.WriteLine("write the number of the car you want to look at");
             string userInput = Console.ReadLine();
+            
            
 
             if (userInput == "1")
@@ -69,6 +75,7 @@ namespace bilforhandler
                 Console.WriteLine("");
                 Console.WriteLine("Do you want to modify or buy it as it is?");
                 
+
             }
             else if (userInput == "2")
             {
@@ -96,6 +103,36 @@ namespace bilforhandler
                 Console.Clear();
                 Console.WriteLine("please write a valid input");
             }
-        }    
+        }
+
+        public void modify(string[] carModels)
+        {
+           
+
+            Console.WriteLine("what do you want to modify?");
+            Console.WriteLine("1. Engine");
+            Console.WriteLine("2. Tires");
+            Console.WriteLine("3. Interior");
+            string modify = Console.ReadLine();
+
+            if (modify == "Engine")
+            {
+                Console.WriteLine("");
+            }
+
+            else if (modify == "Tires")
+            {
+                Console.WriteLine();
+            }
+            else if (modify == "Interior")
+            {
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("please choose one of the options showed to you");
+            }
+
+        }
     }
 }

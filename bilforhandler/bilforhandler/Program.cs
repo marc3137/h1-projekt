@@ -18,7 +18,8 @@ namespace bilforhandler
             Console.WriteLine("4.Tesla Model S 75d - price: 669.820");
             Console.WriteLine("");
 
-            Console.WriteLine("write the number of the car you want to look at");
+            Console.WriteLine("type choose, if you want to choose a car to look at");
+            Console.WriteLine("type quit, if you want to close the program");
 
             Cars t = new Cars();
 
@@ -31,9 +32,7 @@ namespace bilforhandler
 
                 switch (inputArray[0].ToLower())
                 {
-                    case "showall":
-                        t.ShowAllCars(t.carModels);
-                        break;
+                   
 
                     case "choose":
                        t.ChooseCar(t.carModels);
@@ -55,18 +54,11 @@ namespace bilforhandler
     {
         public string[] carModels = new string[] { "1. Renault Megane", "2. Kia Ceed", "3. Mercedes A200", "4. Tesla Model S 75d" };
 
-        public void ShowAllCars(string[] carModels)
-        {
-            foreach (var car in carModels)
-            {
-                Console.WriteLine(car);
-            }
-        }
-
         public void ChooseCar(string[] carModels)
         {
             Console.WriteLine("write the number of the car you want to look at");
             string userInput = Console.ReadLine();
+           
 
             if (userInput == "1")
             {
@@ -74,6 +66,9 @@ namespace bilforhandler
                 Console.WriteLine("You chose the " + carModels[0]);
                 Console.WriteLine("");
                 Console.WriteLine(carModels[0] + " Costs 206.900 and comes with a 1.4, 115 hp engine. It drives 23km/L.");
+                Console.WriteLine("");
+                Console.WriteLine("Do you want to modify or buy it as it is?");
+                
             }
             else if (userInput == "2")
             {
@@ -87,7 +82,7 @@ namespace bilforhandler
                 Console.Clear();
                 Console.WriteLine("You chose the " + carModels[2]);
                 Console.WriteLine("");
-                Console.WriteLine(carModels[2] + "Costs 402.300 and comes with a 2.0, 184 hp engin. It drives 15,4km/L");
+                Console.WriteLine(carModels[2] + " Costs 402.300 and comes with a 2.0, 184 hp engin. It drives 15,4km/L");
             }
             else if (userInput == "4")
             {

@@ -11,11 +11,16 @@ namespace bilforhandler
         public static void Main(string[] args)
         {
 
-            Console.WriteLine("Type showall if you want to see the cars");
-            Console.WriteLine("Type quit to exit the program");
+            Console.WriteLine("welcome to the shop. Here you see the collection of cars available:");
+            Console.WriteLine("1. Renault Megane - price: 206.900");
+            Console.WriteLine("2. Kia Ceed - price: 214.999");
+            Console.WriteLine("3. Mercedes A200 - price: 402.300");
+            Console.WriteLine("4.Tesla Model S 75d - price: 669.820");
+            Console.WriteLine("");
+
+            Console.WriteLine("write the number of the car you want to look at");
 
             Cars t = new Cars();
-
 
             bool isRunning = true;
             while (isRunning == true)
@@ -58,7 +63,6 @@ namespace bilforhandler
             }
         }
 
-
         public void ChooseCar(string[] carModels)
         {
             Console.WriteLine("write the number of the car you want to look at");
@@ -66,22 +70,35 @@ namespace bilforhandler
 
             if (userInput == "1")
             {
+                Console.Clear();
                 Console.WriteLine("You chose the " + carModels[0]);
+                Console.WriteLine("");
+                Console.WriteLine(carModels[0] + " Costs 206.900 and comes with a 1.4, 115 hp engine. It drives 23km/L.");
             }
             else if (userInput == "2")
             {
+                Console.Clear();
                 Console.WriteLine("You chose the " + carModels[1]);
+                Console.WriteLine("");
+                Console.WriteLine(carModels[1] +  " Costs  214.999 and comes with a 1.6, 136 hp engine. It drives 17km/L");
             }
             else if (userInput == "3")
             {
+                Console.Clear();
                 Console.WriteLine("You chose the " + carModels[2]);
+                Console.WriteLine("");
+                Console.WriteLine(carModels[2] + "Costs 402.300 and comes with a 2.0, 184 hp engin. It drives 15,4km/L");
             }
             else if (userInput == "4")
             {
+                Console.Clear();
                 Console.WriteLine("You chose the " + carModels[3]);
+                Console.WriteLine("");
+                Console.WriteLine(carModels[3] + " Costs 669.820 and comes with an electric engine and a 100kWh battery");
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("please write a valid input");
             }
         }    

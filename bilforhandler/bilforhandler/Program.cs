@@ -132,7 +132,8 @@ namespace bilforhandler
         }
         //array for engines
         public string[] engines = new string[] {"1. 115hp + 0 DKK", "2. 125hp + 10.000 DKK", "3. 135hp + 20.000" };
-
+        public string[] tires = new string[] { "1. standard tires", "2. upgraded tires + 3000 DKK" };
+        public string[] interior = new string[] { "1. standard interior", "2. upgraded interior + 3000 DKK" };
 
         public void modify(string[] carModels)
         {

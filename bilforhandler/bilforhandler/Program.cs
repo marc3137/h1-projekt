@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace bilforhandler
 {
@@ -12,14 +13,17 @@ namespace bilforhandler
         {
 
             Console.WriteLine("welcome to the shop. Here you see the collection of cars available:");
-            Console.WriteLine("1. Renault Megane - price: 206.900");
-            Console.WriteLine("2. Kia Ceed - price: 214.999");
-            Console.WriteLine("3. Mercedes A200 - price: 402.300");
-            Console.WriteLine("4. Tesla Model S 75d - price: 669.820");
+            
+            Console.WriteLine("1. Renault Megane");
+            Console.WriteLine("2. Kia Ceed");
+            Console.WriteLine("3. Mercedes A200");
+            Console.WriteLine("4. Tesla Model S 75d");
+
             Console.WriteLine("");
 
+            Console.WriteLine("For more detailed information on all the cars type showall");
             Console.WriteLine("type choose, if you want to choose a car to look at");
-            Console.WriteLine("type quit, if you want to close the program");
+            Console.WriteLine("Youcan type quit at any time to quit the program");
 
             Cars t = new Cars();
 
@@ -32,8 +36,10 @@ namespace bilforhandler
 
                 switch (inputArray[0].ToLower())
                 {
-                   
 
+                    case "showall":
+                        t.sql(t.carModels);
+                        break;
                     case "choose":
                        t.ChooseCar(t.carModels);
                        break;
@@ -104,11 +110,32 @@ namespace bilforhandler
                 Console.WriteLine("please write a valid input");
             }
         }
+        public void sql(string[] carModels)
+        {
+            Console.Clear();
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=cars;";
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            string query = "SELECT * FROM car";
+
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            MySqlDataReader reader;
+
+            databaseConnection.Open();
+
+            reader = commandDatabase.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Console.WriteLine(reader.GetString(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + " " + reader.GetString(4));
+            }
+            Console.WriteLine("Type choose if you want to look at a specific model");
+        }
+        //array for engines
+        public string[] engines = new string[] {"1. 115hp + 0 DKK", "2. 125hp + 10.000 DKK", "3. 135hp + 20.000" };
+
 
         public void modify(string[] carModels)
         {
-           
-
             Console.WriteLine("what do you want to modify?");
             Console.WriteLine("1. Engine");
             Console.WriteLine("2. Tires");
@@ -119,7 +146,6 @@ namespace bilforhandler
             {
                 Console.WriteLine("");
             }
-
             else if (modify == "Tires")
             {
                 Console.WriteLine();
@@ -132,7 +158,6 @@ namespace bilforhandler
             {
                 Console.WriteLine("please choose one of the options showed to you");
             }
-
         }
     }
 }

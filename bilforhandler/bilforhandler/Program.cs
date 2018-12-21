@@ -11,7 +11,6 @@ namespace bilforhandler
     {
         public static void Main(string[] args)
         {
-
             Console.WriteLine("welcome to the shop. Here you see the collection of cars available:");
             
             Console.WriteLine("1. Renault Megane");
@@ -43,15 +42,16 @@ namespace bilforhandler
                     case "choose":
                        t.ChooseCar(t.carModels);
                        break;
-
                     case "quit":
                         isRunning = false;
                         break;
                     case "modify":
                         t.modify(t.carModels);
                         break;
+                    case "buy":
+                        t.buy(t.carModels);
+                            break;
 
-                        
 
                     default:
                         Console.WriteLine("not a valid input");
@@ -63,6 +63,7 @@ namespace bilforhandler
 
     class Cars
     {
+        //array that holds the cars
         public string[] carModels = new string[] { "1. Renault Megane", "2. Kia Ceed", "3. Mercedes A200", "4. Tesla Model S 75d" };
 
         public void ChooseCar(string[] carModels)
@@ -70,8 +71,6 @@ namespace bilforhandler
             Console.WriteLine("write the number of the car you want to look at");
             string userInput = Console.ReadLine();
             
-           
-
             if (userInput == "1")
             {
                 Console.Clear();
@@ -89,6 +88,8 @@ namespace bilforhandler
                 Console.WriteLine("You chose the " + carModels[1]);
                 Console.WriteLine("");
                 Console.WriteLine(carModels[1] +  " Costs  214.999 and comes with a 1.6, 136 hp engine. It drives 17km/L");
+                Console.WriteLine("");
+                Console.WriteLine("Do you want to modify or buy it as it is?");
             }
             else if (userInput == "3")
             {
@@ -96,6 +97,8 @@ namespace bilforhandler
                 Console.WriteLine("You chose the " + carModels[2]);
                 Console.WriteLine("");
                 Console.WriteLine(carModels[2] + " Costs 402.300 and comes with a 2.0, 184 hp engin. It drives 15,4km/L");
+                Console.WriteLine("");
+                Console.WriteLine("Do you want to modify or buy it as it is?");
             }
             else if (userInput == "4")
             {
@@ -103,6 +106,8 @@ namespace bilforhandler
                 Console.WriteLine("You chose the " + carModels[3]);
                 Console.WriteLine("");
                 Console.WriteLine(carModels[3] + " Costs 669.820 and comes with an electric engine and a 100kWh battery");
+                Console.WriteLine("");
+                Console.WriteLine("Do you want to modify or buy it as it is?");
             }
             else
             {
@@ -110,6 +115,7 @@ namespace bilforhandler
                 Console.WriteLine("please write a valid input");
             }
         }
+        //Gets the data from the sql database
         public void sql(string[] carModels)
         {
             Console.Clear();
@@ -123,17 +129,17 @@ namespace bilforhandler
             databaseConnection.Open();
 
             reader = commandDatabase.ExecuteReader();
-
+            //prints the data to the console
             while (reader.Read())
             {
                 Console.WriteLine(reader.GetString(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3) + " " + reader.GetString(4));
             }
             Console.WriteLine("Type choose if you want to look at a specific model");
         }
-        //array for engines
-        public string[] engines = new string[] {"1. 115hp + 0 DKK", "2. 125hp + 10.000 DKK", "3. 135hp + 20.000" };
-        public string[] tires = new string[] { "1. standard tires", "2. upgraded tires + 3000 DKK" };
-        public string[] interior = new string[] { "1. standard interior", "2. upgraded interior + 3000 DKK" };
+        //array for engines, tires and interior
+        public string[] engines = new string[] {"1. +10hp", "2. +20hp - 10.000 DKK", "+30hp - 20000DKK" };
+        public string[] tires = new string[] { "1. standard tires", "2. upgraded tires 3. 3000 DKK" };
+        public string[] interior = new string[] { "1. standard interior", "2. upgraded interior - 3000 DKK" };
 
         public void modify(string[] carModels)
         {
@@ -159,6 +165,10 @@ namespace bilforhandler
             {
                 Console.WriteLine("please choose one of the options showed to you");
             }
+        }
+        public void buy(string[] carModels)
+        {
+            Console.WriteLine("Congatulation, you bought the car");
         }
     }
 }

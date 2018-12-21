@@ -52,7 +52,6 @@ namespace bilforhandler
                         t.buy(t.carModels);
                             break;
 
-
                     default:
                         Console.WriteLine("not a valid input");
                         break;
@@ -168,7 +167,7 @@ namespace bilforhandler
         }
         public void buy(string[] carModels)
         {
-            Console.WriteLine("Congatulation, you bought the car");
+            Console.WriteLine("Congatulations, you bought the car");
         }
     }
 }

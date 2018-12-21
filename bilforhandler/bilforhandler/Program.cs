@@ -23,7 +23,7 @@ namespace bilforhandler
 
             Console.WriteLine("For more detailed information on all the cars type showall");
             Console.WriteLine("type choose, if you want to choose a car to look at");
-            Console.WriteLine("Youcan type quit at any time to quit the program");
+            Console.WriteLine("You can type quit at any time to quit the program");
 
             Cars t = new Cars();
 
@@ -143,17 +143,17 @@ namespace bilforhandler
             Console.WriteLine("3. Interior");
             string modify = Console.ReadLine();
 
-            if (modify == "Engine")
+            if (modify == "1" || modify == "engine")
             {
-                Console.WriteLine("");
+                Console.WriteLine("The 3 upgrades for the engine are: " + engines[0] + ", " + engines[1] + ", " + engines[2]);
             }
-            else if (modify == "Tires")
+            else if (modify == "2" || modify == "tires")
             {
-                Console.WriteLine();
+                Console.WriteLine("The 2 upgrades for the tires are: " + tires[0] + ", " + tires[1]);
             }
-            else if (modify == "Interior")
+            else if (modify == "3" || modify == "interior")
             {
-                Console.WriteLine();
+                Console.WriteLine("The 2 upgrades for the interior: " + interior[0] + ", " + interior[1]);
             }
             else
             {

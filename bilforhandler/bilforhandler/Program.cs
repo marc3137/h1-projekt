@@ -116,6 +116,7 @@ namespace bilforhandler
             {
                 Console.WriteLine("Congatulations, you bought the car");
             }
+           
         }
         //Gets the data from the sql database
         public void sql(string[] carModels)
@@ -153,19 +154,19 @@ namespace bilforhandler
 
             string modify = Console.ReadLine();
 
-            if (modify == "1" || modify == "engine")
+            if (modify == "1" || modify == "Engine".ToLower())
             {
                 Console.WriteLine("The 3 upgrades for the engine are: " + engines[0] + ", " + engines[1] + ", " + engines[2]);
             }
-            else if (modify == "2" || modify == "tires")
+            else if (modify == "2" || modify == "Tires".ToLower())
             {
                 Console.WriteLine("The 2 upgrades for the tires are: " + tires[0] + ", " + tires[1]);
             }
-            else if (modify == "3" || modify == "interior")
+            else if (modify == "3" || modify == "Interior".ToLower())
             {
                 Console.WriteLine("The 2 upgrades for the interior: " + interior[0] + ", " + interior[1]);
             }
-            else if (modify == "buy" || modify == "buy car")
+            else if (modify == "buy".ToLower() || modify == "buy car".ToLower())
             {
                 Console.WriteLine("Congatulations, you bought the car");
             }

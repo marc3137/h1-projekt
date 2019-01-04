@@ -65,7 +65,7 @@ namespace bilforhandler
         public void ChooseCar(string[] carModels)
         {
             Console.WriteLine("write the number of the car you want to look at");
-            string userInput = Console.ReadLine();           
+            string userInput = Console.ReadLine();
             
             if (userInput == "1")
             {
@@ -109,6 +109,13 @@ namespace bilforhandler
                 Console.Clear();
                 Console.WriteLine("please write a valid input");
             }
+
+            string buyCar = Console.ReadLine();
+
+            if (buyCar == "buy") 
+            {
+                Console.WriteLine("Congatulations, you bought the car");
+            }
         }
         //Gets the data from the sql database
         public void sql(string[] carModels)
@@ -142,7 +149,7 @@ namespace bilforhandler
             Console.WriteLine("1. Engine");
             Console.WriteLine("2. Tires");
             Console.WriteLine("3. Interior");
-            Console.WriteLine("4. If you just want to buy the car type buy or buy car");
+            Console.WriteLine("4. If youe just want to buy the car type buy or buy car");
 
             string modify = Console.ReadLine();
 

@@ -48,10 +48,7 @@ namespace bilforhandler
                     case "modify":
                         t.modify(t.carModels);
                         break;
-                    case "buy":
-                        t.buy(t.carModels);
-                            break;
-
+                   
                     default:
                         Console.WriteLine("not a valid input");
                         break;
@@ -68,7 +65,7 @@ namespace bilforhandler
         public void ChooseCar(string[] carModels)
         {
             Console.WriteLine("write the number of the car you want to look at");
-            string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine();           
             
             if (userInput == "1")
             {
@@ -78,8 +75,6 @@ namespace bilforhandler
                 Console.WriteLine(carModels[0] + " Costs 206.900 and comes with a 1.4, 115 hp engine. It drives 23km/L.");
                 Console.WriteLine("");
                 Console.WriteLine("Do you want to modify or buy it as it is?");
-                
-
             }
             else if (userInput == "2")
             {
@@ -107,6 +102,7 @@ namespace bilforhandler
                 Console.WriteLine(carModels[3] + " Costs 669.820 and comes with an electric engine and a 100kWh battery");
                 Console.WriteLine("");
                 Console.WriteLine("Do you want to modify or buy it as it is?");
+               
             }
             else
             {
@@ -146,6 +142,8 @@ namespace bilforhandler
             Console.WriteLine("1. Engine");
             Console.WriteLine("2. Tires");
             Console.WriteLine("3. Interior");
+            Console.WriteLine("4. If you just want to buy the car type buy or buy car");
+
             string modify = Console.ReadLine();
 
             if (modify == "1" || modify == "engine")
@@ -160,14 +158,14 @@ namespace bilforhandler
             {
                 Console.WriteLine("The 2 upgrades for the interior: " + interior[0] + ", " + interior[1]);
             }
+            else if (modify == "buy" || modify == "buy car")
+            {
+                Console.WriteLine("Congatulations, you bought the car");
+            }
             else
             {
                 Console.WriteLine("please choose one of the options showed to you");
             }
-        }
-        public void buy(string[] carModels)
-        {
-            Console.WriteLine("Congatulations, you bought the car");
         }
     }
 }
